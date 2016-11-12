@@ -1,0 +1,115 @@
+# Site settings
+title: Business Casual
+description: >
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+repository: 'egeis/jekyll-business-casual'
+url: ''
+baseurl: ''
+
+#url: 'https://egeis.github.io'
+#baseurl: '/richardcoan.net'
+
+# Markdown Settings
+markdown: kramdown
+kramdown:
+   input: GFM
+   hard_wrap: false
+highlighter: rouge
+
+# Outputting
+source: src
+permalink: /:categories/:title/
+destination: public
+
+# Build Settings
+gems:
+  - jekyll-feed
+  - jekyll-sitemap  
+  - octopress-paginate
+whitelist:
+  - jekyll-feed
+  - jekyll-sitemap
+  - octopress-paginate
+include:
+  - .htaccess
+  - _pages
+  - README.md
+  - LICENSE.md
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - CHANGELOG.md
+  - .sass-cache
+  - .asset-cache
+  - .bundle
+  - vendor
+  - log
+  - node_modules
+  - bower_components
+  - gulpfile.js
+  - package.json
+  - assets
+  - .nojekyll
+  - .git
+  - .travis
+  - bower.json
+keep_files:
+ - js
+ - css
+ - images 
+ - font-awesome
+ 
+encoding: "utf-8"
+
+# Collection Settings
+collections:
+   members:
+     output: false
+
+paginate:
+  per_page: 3 
+  limit: 5   
+  title_suffix: " - page :num"
+  reversed: false 
+  
+prose: 
+  ignore: 
+    - /src/_layouts
+    - /src/_includes
+    - /src/_plugins
+    - /src/*.html
+    - /src/assets/css
+    - /src/assets/font-awesome
+    - /src/assets/js
+    - /src/assets/fonts
+  media: /src/assets/images/upload
+  metadata: 
+    src/_posts: 
+      -
+       name: "frontimagesrc"
+       field:
+         element: "text"
+         label: "Front Image - Source"
+      -
+       name: "frontimagealt"
+       field:
+         element: "text"
+         label: "Front Image - Description"
+      -
+       name: "date"
+       field:
+         element: "text"
+         label: "Date"
+         value: "CURRENT_DATETIME"
+      - 
+        field: 
+          element: hidden
+          value: blog
+        name: "layout"
+      - 
+        field: 
+          element: text
+          label: title
+        name: "title"
