@@ -1,0 +1,13 @@
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-metadata
+
+# Node JS
+node_modules/
+bower_components/
+
+# Build
+build/
+dist/
+public/
