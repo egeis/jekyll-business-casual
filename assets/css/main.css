@@ -5,7 +5,7 @@
  */
 body {
   font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-  background: url("/assets/images/bg.jpg") no-repeat center center fixed;
+  background: url("../images/bg.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -6425,7 +6425,7 @@ button.close {
  */
 body {
   font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-  background: url("/assets/images/bg.jpg") no-repeat center center fixed;
+  background: url("../images/bg.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
