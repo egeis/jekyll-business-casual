@@ -11,3 +11,7 @@ bower_components/
 build/
 dist/
 public/
+
+# Danger Zone
+deploy_key
+deploy_key.pub
