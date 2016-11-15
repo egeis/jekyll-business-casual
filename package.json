@@ -27,6 +27,7 @@
   "homepage": "https://github.com/egeis/jekyll-south-west#readme",
   "devDependencies": {
     "child_process": "^1.0.2",
+    "gh-pages": "^0.11.0",
     "gulp": "^3.9.1",
     "gulp-bower": "0.0.13",
     "gulp-clean-css": "^2.0.13",
