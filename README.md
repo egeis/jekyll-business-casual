@@ -1,8 +1,6 @@
-# Jekyll - [Business Casual](https://startbootstrap.com/template-overviews/business-casual/)[![Build Status](https://travis-ci.org/egeis/jekyll-business-casual.svg?branch=master)](https://travis-ci.org/egeis/jekyll-business-casual)
+# Jekyll - [Business Casual](https://startbootstrap.com/template-overviews/business-casual/) [![Build Status](https://travis-ci.org/egeis/jekyll-business-casual.svg?branch=master)](https://travis-ci.org/egeis/jekyll-business-casual)
 
-[Business Casual](https://startbootstrap.com/template-overviews/business-casual/) is a full website template for [Bootstrap](http://getbootstrap.com/). It features four different HTML pages and a number of custom style components.
-
-[Business Casual Preview](https://egeis.github.io/jekyll-modern-business/) from from github.io.
+[Business Casual](https://startbootstrap.com/template-overviews/business-casual/) is a full website template for [Bootstrap](http://getbootstrap.com/). It features four different HTML pages and a number of custom style components. [Business Casual Preview](https://egeis.github.io/jekyll-modern-business/) from from github.io.
 
 ## Getting Started
 
