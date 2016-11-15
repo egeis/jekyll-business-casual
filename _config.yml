@@ -5,8 +5,8 @@ description: >
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 repository: 'egeis/jekyll-business-casual'
-url: 'https://egeis.github.io/'
-baseurl: 'jekyll-business-casual'
+url: 'https://egeis.github.io'
+baseurl: '/jekyll-business-casual'
 
 #Theme Settings
 address: "3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890"
