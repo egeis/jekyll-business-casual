@@ -18,7 +18,7 @@ date: <% post.date %>
     <div class="box">
         <div class="col-lg-12 text-center">
                 {% if page.frontimagesrc %}
-                <img class="img-responsive img-border img-full" src="{{ page.frontimagesrc }}" alt="{{ page.frontimagealt }}">
+                <img class="img-responsive img-border img-full" src="{{ page.frontimagesrc | prepend: site.baseurl }}" alt="{{ page.frontimagealt }}">
                 {% endif %}
                 <hr />
                 <h2>{{ page.title }}<br><small>{{ page.date | date: '%B %d, %Y' }}</small>
