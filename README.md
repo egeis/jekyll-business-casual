@@ -9,9 +9,7 @@ To begin using this template, choose one of the following options to get started
 * Clone the repo: `git clone https://github.com/egeis/jekyll-business-casual.git`
 * Fork the repo
 
-Configure Travis-ci to build on push.  You will need to setup a GitHub Token in your profile if you have not done so already and allow travis-ci access to your github profile, remember to copy your token down it is only visible once.
-
-Added you GITHUB_TOKEN to either your travis-ci settings either by inserting it into your .travis file via a form of encryption or in the settings on the repository on the travis-ci.org website.
+For Travis-CI deployment following the [instructions](https://gist.github.com/domenic/ec8b0fc8ab45f39403dd) from github to create credentials for automated deployment.
 
 ## Bugs and Issues
 
