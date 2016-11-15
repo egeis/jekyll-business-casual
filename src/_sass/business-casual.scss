@@ -6,7 +6,7 @@
 
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background: url('../img/bg.jpg') no-repeat center center fixed;
+    background: url('/assets/images/bg.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -105,10 +105,6 @@ hr {
 footer {
     background: #fff;
     background: rgba(255,255,255,0.9);
-}
-
-footer p {
-    margin: 0;
     padding: 50px 0;
 }
 

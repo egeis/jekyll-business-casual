@@ -5,6 +5,7 @@ var connect = require('gulp-connect');
 var gulp = require('gulp');
 var merge = require('merge-stream');
 var pump = require('pump');
+var rimraf  = require('gulp-rimraf');
 var runSequence = require('run-sequence');      // Until Gulp.series is available.
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
@@ -12,6 +13,8 @@ var util = require('gulp-util');
 
 var config = {
     bootstrapDir: './bower_components/bootstrap-sass',
+    jqueryDir: './bower_components/jQuery/dist',
+    fontAwDir: './bower_components/font-awesome',
     publicDir: './public',
     srcDir: './src',
     production: !!util.env.production
@@ -32,7 +35,7 @@ gulp.task('clean', function() {
 var localhost = {
     root: config.publicDir,
     livereload: true,
-    port: 8080
+    port: 4000
 };
 
 // Start Localhost Server
@@ -47,7 +50,7 @@ gulp.task('connect:reload', function()
 });
 
 // Start Watch
-gulp.task('watch', function()
+gulp.task('watch',['connect:start'], function()
 {
     gulp.watch(config.srcDir +'/_sass/*.scss', function(){ runSequence('build:css', 'connect:reload'); });
     gulp.watch(config.srcDir + '/_scripts/*.js', function(){ runSequence('build:scripts', 'connect:reload'); });
@@ -68,8 +71,24 @@ gulp.task('build:css', function() {
 
 // BUILD Fonts
 gulp.task('build:fonts', function() {
-    return gulp.src(config.bootstrapDir + '/assets/fonts/**/*')
+    
+     // Move font awesome
+    var faCss = gulp.src(config.fontAwDir+'/css/font-awesome.min.css')
+        .pipe(gulp.dest(config.publicDir + '/assets/fonts/font-awesome/css'));
+     
+    var faFonts = gulp.src(config.fontAwDir+'/fonts/**/*')
+        .pipe(gulp.dest(config.publicDir + '/assets/fonts/font-awesome/fonts'));
+    
+    var fonts = gulp.src(config.bootstrapDir + '/assets/fonts/**/*')
         .pipe(gulp.dest(config.publicDir + '/assets/fonts'));
+        
+    return merge(faCss, faFonts, fonts);
+});
+
+// BUILD Images
+gulp.task('build:images', function() {
+    return gulp.src(['./assets/images/**/*.png','./assets/images/**/*.svg','./assets/images/**/*.jpg'])
+        .pipe(gulp.dest(config.publicDir+'/assets/images'));
 });
 
 // BUILD Icons
@@ -81,11 +100,17 @@ gulp.task('build:icons', function() {
 // BUILD Scripts
 gulp.task('build:scripts', function()
 {
-    return gulp.src(config.srcDir + '/_scripts/*.js')
+    var jquery = gulp.src(config.jqueryDir + '/jquery.min.js')
+        .pipe(gulp.dest(config.publicDir +'/assets/scripts'));
+     
+    var bootstrap = gulp.src(config.bootstrapDir + '/assets/javascripts/bootstrap.min.js')
+        .pipe(gulp.dest(config.publicDir + '/assets/scripts' ));
+     
+    return merge(jquery, bootstrap)
 });
 
 // BUILD Jekyll
-gulp.task('jekyll', function(gulpCallBack) 
+gulp.task('build:jekyll', function(gulpCallBack) 
 {
     var cmd = "jekyll";
     var flags = ['build', '--config', '_config.yml', '--incremental'];
@@ -93,7 +118,7 @@ gulp.task('jekyll', function(gulpCallBack)
     if(process.platform === "win32")
     {
         cmd = "bundle.bat";
-        flags.unshift("exex");
+        flags.unshift("exec","jekyll");
     } 
     
     util.log('Spawning Jekyll with: '+ flags.join(','));
@@ -116,5 +141,6 @@ gulp.task('deploy:ghpages', ['build'], function() {
 });
 
 // Task Groups
-gulp.task('build', ['build:css', 'build:fonts', 'build:icons', 'build:scripts']);
-gulp.task('debug', ['clean'], function() { runSequence('build', 'connect:start', 'watch'); });
+gulp.task('build', function() { runSequence('build:files', 'build:jekyll'); });
+gulp.task('build:files', ['build:css', 'build:images', 'build:fonts', 'build:icons', 'build:scripts']);
+gulp.task('debug', ['clean'], function() { runSequence('build', 'watch'); });

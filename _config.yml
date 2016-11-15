@@ -6,11 +6,22 @@ description: >
   Google search results) and in your feed.xml site description.
 repository: 'egeis/jekyll-business-casual'
 url: ''
-baseurl: ''
+#url: 'https://egeis.github.io/jekyll-business-casua'
 
-#url: 'https://egeis.github.io'
-#baseurl: '/richardcoan.net'
-
+#Theme Settings
+address: "3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890"
+copyright: "Your website"
+links:
+ - url: "https://github.com/egeis/jekyll-business-casual"
+   display-order: 1
+   icon: "fa-github-square"
+ - url: "https://www.linkedin.com/"
+   display-order: 0
+   icon: "fa-linkedin-square"
+ - url: "https://www.facebook.com/"
+   display-order: 2
+   icon: "fa-facebook-square"
+   
 # Markdown Settings
 markdown: kramdown
 kramdown:
@@ -20,7 +31,7 @@ highlighter: rouge
 
 # Outputting
 source: src
-permalink: /:categories/:title/
+permalink: /:title/
 destination: public
 
 # Build Settings
@@ -56,15 +67,15 @@ exclude:
   - .travis
   - bower.json
 keep_files:
- - js
- - css
- - images 
- - font-awesome
+ - assets
  
 encoding: "utf-8"
 
 # Collection Settings
 collections:
+   posts:
+     permalink: /blog/:year/:month/:day/:title.html
+     output: true
    members:
      output: false
 
@@ -80,11 +91,8 @@ prose:
     - /src/_includes
     - /src/_plugins
     - /src/*.html
-    - /src/assets/css
-    - /src/assets/font-awesome
-    - /src/assets/js
-    - /src/assets/fonts
-  media: /src/assets/images/upload
+    - /src/_sass
+  media: /assets/images/uploads
   metadata: 
     src/_posts: 
       -

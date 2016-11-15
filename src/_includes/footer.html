@@ -1,0 +1,18 @@
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <p>Copyright &copy; {{ site.copyright }} {{ 'now' | date: "%Y" }}</p>
+{% if site.links %}
+                <ul class="list-inline" style="text-align:center">
+{% assign ordered_links = site.links | sort: "display-order"%}
+{% for link in ordered_links %}
+                    <li class="nav-item"><a class="nav-link" href="{{ link.url }}" rel="external" target="_blank"><i class="fa {{ link.icon }} fa-lg"></i></a></li>
+{% endfor %}
+                 </ul>
+{% endif %}
+                
+            </div>
+        </div>
+    </div>
+</footer>

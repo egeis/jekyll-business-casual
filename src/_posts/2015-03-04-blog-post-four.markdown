@@ -7,7 +7,8 @@ tags:
 - github
 - jekyll
 categories:
-- general 
+- general
+frontimagesrc: "/assets/images/slides/slide-1.jpg"
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.
