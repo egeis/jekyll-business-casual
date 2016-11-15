@@ -13,7 +13,7 @@ var util = require('gulp-util');
 
 var config = {
     bootstrapDir: './bower_components/bootstrap-sass',
-    jqueryDir: './bower_components/jQuery/dist',
+    jqueryDir: './bower_components/jquery/dist',
     fontAwDir: './bower_components/font-awesome',
     publicDir: './public',
     srcDir: './src',
@@ -22,13 +22,8 @@ var config = {
 
 // Delete Temparay Files
 gulp.task('clean', function() {
-   var dest = gulp.src([config.publicDir], {read: false})
+   return gulp.src([config.publicDir], {read: false})
         .pipe(rimraf());
-        
-   var gen = gulp.src([config.srcDir+'/temp'], {read: false})
-        .pipe(rimraf());
-        
-    return merge(dest,gen);
 });
 
 // Localhost - Liveserver
