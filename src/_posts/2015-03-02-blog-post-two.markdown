@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Blog Post Part Deux
+title: Blog Post Part Two
 author: Your Name
 tags: 
 - github
